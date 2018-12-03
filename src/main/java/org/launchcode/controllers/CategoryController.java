@@ -33,7 +33,7 @@ public class CategoryController {
 
     //user adding categories via a form
     @RequestMapping(value="add", method = RequestMethod.GET)
-    public String displayAddform(Model model){
+    public String displayAddForm(Model model){
         model.addAttribute("title", "Add Category");
         model.addAttribute("category", new Category());
         //model.addAttribute("categories", categoryDao.findAll());
@@ -41,7 +41,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value="add", method = RequestMethod.POST)
-    public String add(Model model,
+    public String processAddForm(Model model,
                       @ModelAttribute @Valid Category category, Errors errors){
         if (errors.hasErrors()){
             model.addAttribute("title", "Add Category");

@@ -5,6 +5,7 @@
 <body class="container">
 
 <nav th:replace="fragments :: navigation"></nav>
+<p th:unless="${categories} and ${categories.size()}">no cheese :(</p>
 
 <h1></h1>
 <h1></h1>
