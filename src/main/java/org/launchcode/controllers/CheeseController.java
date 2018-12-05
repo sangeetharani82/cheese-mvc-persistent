@@ -24,10 +24,10 @@ import java.util.List;
 public class CheeseController {
 
     @Autowired
-    private CheeseDao cheeseDao;
+    CheeseDao cheeseDao;
 
     @Autowired
-    private CategoryDao categoryDao;
+    CategoryDao categoryDao;
 
     // Request path: /cheese
     @RequestMapping(value = "")

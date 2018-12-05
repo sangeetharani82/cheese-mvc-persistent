@@ -10,7 +10,7 @@
         <h1></h1>
 
         <ul th:each="menu : ${menus}">
-            <li th:id="${menu.id}"><a th:href="@{'/menu/view/' + ${menu.id}}" th:text="${menu.name}"></a></li>
+            <li th:id="${menu.id}"><a th:href="'/menu/view/' + ${menu.id}" th:text="${menu.name}"></a></li>
         </ul>
 
         <h5><a th:href="@{'/menu/add'}">Add a Menu</a></h5>

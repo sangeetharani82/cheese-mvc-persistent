@@ -8,7 +8,7 @@
         <h1></h1>
         <h1></h1>
         <ul th:each="menu : ${menu.cheeses}">
-            <li name="menuId" th:id="${menu.id}" th:text="${menu.name}"></li>
+            <li th:id="${menu.id}" th:text="${menu.name}"></li>
         </ul>
         <p th:unless="${menu.cheeses.size()}">no cheeses yet</p>
         <p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>
