@@ -2,18 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}+*{name}+' '+${cheese.id}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+<h1></h1>
 
 <form method="post" style="max-width:600px;" th:object="${cheese}">
     <div class="form-group">
-        <label th:for="name">Name</label>
+        <label th:for="name">Name:</label>
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="description">Description</label>
+        <label th:for="description">Description:</label>
         <input class="form-control" th:field="*{description}" />
         <span th:errors="*{description}" class="error"></span>
     </div>
@@ -21,11 +22,15 @@
     <div class="form-group">
         <label th:for="type">Type</label>
         <select name="categoryId">
+            <option th:value="*{category.name}"
+                    th:text="*{category.name}"></option>
             <option th:each="category : ${categories}"
                     th:text="${category.name}"
-                    th:value="${category.id}"></option>
+                    th:value="${category.id}">
+            </option>
         </select>
     </div>
+
     <h1></h1>
     <div>
         <label th:for="rating">Rating(Enter a Value between 1 and 5)</label>
@@ -33,11 +38,7 @@
         <span th:errors="*{rating}" class="error"></span>
     </div>
     <h1></h1>
-
-    <input type="submit" value="Add Cheese" />
+    <input type="submit" value="Edit Cheese" />
 </form>
-
 </body>
 </html>
-
-
